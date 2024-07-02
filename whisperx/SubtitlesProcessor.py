@@ -1,6 +1,5 @@
 import math
 from conjunctions import get_conjunctions, get_comma
-from typing import TextIO
 
 def normal_round(n):
     if n - math.floor(n) < 0.5:
