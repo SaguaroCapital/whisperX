@@ -20,7 +20,7 @@ setup(
             open(os.path.join(os.path.dirname(__file__), "requirements.txt"))
         )
     ]
-    + ["pyannote.audio>=3.1.1"], #change to 3.3.1 for numpy>=2
+    + ["pyannote.audio>=3.3.1"], 
     entry_points={
         "console_scripts": ["whisperx=whisperx.transcribe:cli"],
     },
