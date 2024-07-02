@@ -1,5 +1,4 @@
 import os
-import warnings
 from typing import List, Union, Optional, NamedTuple
 
 import ctranslate2
@@ -45,10 +44,6 @@ class WhisperModel(faster_whisper.WhisperModel):
         )
 
         encoder_output = self.encode(features)
-
-        max_initial_timestamp_index = int(
-            round(options.max_initial_timestamp / self.time_precision)
-        )
 
         result = self.model.generate(
                 encoder_output,
@@ -207,7 +202,7 @@ class FasterWhisperPipeline(Pipeline):
         if self.suppress_numerals:
             previous_suppress_tokens = self.options.suppress_tokens
             numeral_symbol_tokens = find_numeral_symbol_tokens(self.tokenizer)
-            print(f"Suppressing numeral and symbol tokens")
+            print("Suppressing numeral and symbol tokens")
             new_suppressed_tokens = numeral_symbol_tokens + self.options.suppress_tokens
             new_suppressed_tokens = list(set(new_suppressed_tokens))
             self.options = self.options._replace(suppress_tokens=new_suppressed_tokens)
