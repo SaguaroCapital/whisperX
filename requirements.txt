@@ -6,4 +6,4 @@ pandas
 setuptools>=65
 nltk
 numpy<2
-ctranslate==4.4.0
+ctranslate2==4.4.0
